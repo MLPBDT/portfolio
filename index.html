@@ -199,6 +199,11 @@ footer .big { margin: 0; font: 900 clamp(44px, 8vw, 104px)/.88 var(--display); t
 footer .big span { color: var(--blue); }
 footer .row { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px 32px; margin-top: 32px; }
 
+.mail { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px; margin-top: 28px; }
+.mail-link { font: 600 clamp(20px, 3vw, 32px)/1.2 var(--body); color: var(--blue); text-decoration: none; border-bottom: 2px solid currentColor; overflow-wrap: anywhere; user-select: all; }
+.mail-link:hover { color: var(--ink); }
+.mail-link:focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; }
+
 /* lightbox */
 dialog {
   border: 0; padding: 0; background: transparent; color: var(--ink);
@@ -407,6 +412,10 @@ Prenez une pause bien méritée dans nos chambres lumineuses et décorées avec 
 <footer id="contact">
   <div class="wrap">
     <p class="big">Un projet de visuels ou <span>de réseaux sociaux&nbsp;?</span></p>
+    <div class="mail">
+      <a class="mail-link" href="mailto:mattfau83@gmail.com">mattfau83@gmail.com</a>
+      <button class="btn" id="copy-mail" type="button">Copier l’adresse</button>
+    </div>
     <div class="row">
       <span class="label">Mattéo Fauvre · Toulon, Var</span>
       <span class="label">Identité visuelle · Instagram · Web</span>
@@ -432,6 +441,14 @@ Prenez une pause bien méritée dans nos chambres lumineuses et décorées avec 
 </dialog>
 
 <script>
+(() => {
+  const cb = document.getElementById('copy-mail');
+  if (cb) cb.addEventListener('click', () => {
+    const done = () => { cb.textContent = 'Adresse copiée'; setTimeout(() => cb.textContent = 'Copier l’adresse', 2000); };
+    const fallback = () => { const r = document.createRange(); r.selectNodeContents(document.querySelector('.mail-link')); const s = getSelection(); s.removeAllRanges(); s.addRange(r); cb.textContent = 'Sélectionnée : Ctrl+C'; };
+    try { navigator.clipboard.writeText('mattfau83@gmail.com').then(done, fallback); } catch (e) { fallback(); }
+  });
+})();
 (() => {
   const dlg = document.getElementById('lb');
   const img = document.getElementById('lb-img');
