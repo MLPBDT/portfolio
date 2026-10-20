@@ -1,0 +1,482 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Portfolio de Mattéo Fauvre, graphiste, community manager et développeur web à Toulon : identités visuelles, feeds Instagram, sites et applications.">
+<meta property="og:title" content="Mattéo Fauvre · Portfolio">
+<meta property="og:description" content="Identités visuelles, feeds Instagram, sites et applications.">
+<meta property="og:image" content="img/lettrage-3d.png">
+<link rel="icon" href="img/arf-logo.jpg">
+<style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Mattéo Fauvre · Graphiste & développeur web à Toulon</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;900&family=Instrument+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: poster-like hero, then a print-style index of work; social feeds shown as real 3-column Instagram grids with a vertical label, echoing the "FEED INSTAGRAM" boards. */
+:root {
+  --paper: #eceef2;
+  --card: #ffffff;
+  --ink: #0d0f14;
+  --muted: #586070;
+  --rule: #d3d8e1;
+  --blue: #2a57f0;
+  --blue-ink: #ffffff;
+  --shade: rgba(13, 15, 20, .62);
+  --display: "Big Shoulders Display", "Arial Narrow", "Helvetica Neue", Arial, sans-serif;
+  --body: "Instrument Sans", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #0b0d11; --card: #151821; --ink: #eef0f5; --muted: #98a0b0; --rule: #252a36;
+    --blue: #6d8bff; --blue-ink: #0b0d11; --shade: rgba(0, 0, 0, .7); color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #0b0d11; --card: #151821; --ink: #eef0f5; --muted: #98a0b0; --rule: #252a36;
+  --blue: #6d8bff; --blue-ink: #0b0d11; --shade: rgba(0, 0, 0, .7); color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body {
+  background: var(--paper); color: var(--ink);
+  font: 16px/1.6 var(--body);
+  -webkit-font-smoothing: antialiased;
+}
+.wrap {
+  max-width: 1240px; margin: 0 auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+@media (min-width: 720px) { .wrap { padding-left: max(32px, env(safe-area-inset-left, 0px)); padding-right: max(32px, env(safe-area-inset-right, 0px)); } }
+a { color: inherit; }
+img { display: block; max-width: 100%; height: auto; }
+.label { font: 500 12px/1.4 var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+
+/* top bar */
+.bar { display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: space-between; align-items: center; padding-block: 20px; border-bottom: 1px solid var(--rule); }
+.bar nav { display: flex; flex-wrap: wrap; gap: 4px 20px; }
+.bar nav a { text-decoration: none; font: 500 13px/1 var(--mono); letter-spacing: .06em; text-transform: uppercase; padding: 6px 0; border-bottom: 2px solid transparent; }
+.bar nav a:hover, .bar nav a:focus-visible { border-color: var(--blue); outline: none; }
+
+/* hero */
+.hero { display: grid; gap: 32px; padding-block: 48px 64px; align-items: end; }
+@media (min-width: 900px) { .hero { grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); gap: 48px; padding-block: 72px 88px; } }
+.hero h1 {
+  margin: 0; font: 900 clamp(56px, 8.6vw, 128px)/.84 var(--display);
+  text-transform: uppercase; letter-spacing: -.01em; text-wrap: balance;
+}
+.hero h1 span { color: var(--blue); display: block; }
+.hero .role { margin: 28px 0 0; font-size: clamp(18px, 2vw, 21px); max-width: 30ch; line-height: 1.45; }
+.hero .meta { margin-top: 28px; display: flex; flex-wrap: wrap; gap: 8px; }
+.chip { font: 500 12px/1 var(--mono); letter-spacing: .05em; text-transform: uppercase; border: 1px solid var(--ink); border-radius: 999px; padding: 8px 12px; }
+.chip.on { background: var(--blue); border-color: var(--blue); color: var(--blue-ink); }
+a.chip { text-decoration: none; transition: background .2s ease, color .2s ease, border-color .2s ease; }
+a.chip:hover { background: var(--ink); border-color: var(--ink); color: var(--paper); }
+a.chip.on:hover { background: var(--ink); border-color: var(--ink); color: var(--paper); }
+a.chip:focus-visible { outline: 3px solid var(--blue); outline-offset: 2px; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+.hero figure { margin: 0; }
+.hero figure img { width: 100%; }
+
+/* sections */
+section { padding-block: 64px; border-top: 1px solid var(--rule); }
+.sec-head { display: grid; gap: 12px; margin-bottom: 40px; }
+@media (min-width: 900px) { .sec-head { grid-template-columns: 220px minmax(0, 1fr); gap: 32px; align-items: baseline; } }
+.sec-head h2 { margin: 0; font: 900 clamp(40px, 6vw, 72px)/.9 var(--display); text-transform: uppercase; text-wrap: balance; }
+.sec-head p { margin: 12px 0 0; color: var(--muted); max-width: 60ch; }
+
+/* identity grid */
+.works { display: grid; gap: 20px; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+@media (min-width: 900px) { .works { grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 24px; } }
+.work { margin: 0; display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+.work .frame { background: #fff; border-radius: 4px; overflow: hidden; display: grid; place-items: center; cursor: zoom-in; border: 0; padding: 0; width: 100%; }
+.work .frame img { width: 100%; height: 100%; object-fit: contain; transition: transform .5s ease; }
+.work .frame:hover img { transform: scale(1.03); }
+.work .frame:focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; }
+.work figcaption { display: flex; flex-direction: column; gap: 2px; }
+.work figcaption b { font-weight: 600; font-size: 16px; }
+.w-vogue { grid-column: span 2; }
+.w-vogue .frame { aspect-ratio: 4 / 5; background: #111; }
+.w-vogue .frame img { object-fit: cover; }
+.w-label .frame, .w-logo .frame { aspect-ratio: 4 / 5; }
+.w-label .frame img { padding: 6%; }
+.w-logo .frame img { padding: 8%; }
+.w-sq .frame { aspect-ratio: 1; }
+.w-sq .frame img { padding: 6%; }
+.w-wide { grid-column: span 2; }
+.w-wide .frame { aspect-ratio: 2 / 1; }
+.w-wide .frame img { padding: 4%; }
+@media (min-width: 900px) {
+  .w-vogue, .w-label, .w-logo, .w-sq, .w-wide { grid-column: span 2; }
+  .w-wide .frame { aspect-ratio: 1; }
+  .w-wide .frame img { padding: 6%; }
+}
+
+/* feeds */
+.feed { display: grid; gap: 28px; padding-block: 8px 56px; }
+.feed + .feed { border-top: 1px dashed var(--rule); padding-top: 56px; }
+@media (min-width: 900px) { .feed { grid-template-columns: 64px minmax(0, 1fr) minmax(0, 1.25fr); gap: 32px; align-items: start; } }
+.vlabel { display: none; }
+@media (min-width: 900px) {
+  .vlabel { display: block; writing-mode: vertical-rl; transform: rotate(180deg); font: 900 64px/.85 var(--display); text-transform: uppercase; color: var(--blue); white-space: nowrap; }
+}
+.feed-info { display: flex; flex-direction: column; gap: 16px; min-width: 0; }
+.feed-info h3 { margin: 0; font: 900 clamp(36px, 4.4vw, 56px)/.9 var(--display); text-transform: uppercase; }
+.feed-info p { margin: 0; max-width: 46ch; }
+.facts { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 6px 16px; margin: 4px 0 0; font-size: 14px; }
+.facts dt { font: 500 12px/1.7 var(--mono); letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+.facts dd { margin: 0; font-variant-numeric: tabular-nums; }
+.board { border-radius: 4px; overflow: hidden; background: #000; cursor: zoom-in; border: 0; padding: 0; width: 100%; }
+.board:focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; }
+.grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 4px; }
+.post { position: relative; border: 0; padding: 0; margin: 0; background: var(--card); cursor: zoom-in; overflow: hidden; aspect-ratio: 4 / 5; }
+.post img { width: 100%; height: 100%; object-fit: cover; transition: transform .45s ease; }
+.post span {
+  position: absolute; inset: auto 0 0 0; padding: 28px 10px 10px; text-align: left;
+  font: 600 13px/1.25 var(--body); color: #fff;
+  background: linear-gradient(transparent, rgba(0,0,0,.75));
+  opacity: 0; transform: translateY(6px); transition: opacity .25s ease, transform .25s ease;
+}
+.post:hover img { transform: scale(1.04); }
+.post:hover span, .post:focus-visible span { opacity: 1; transform: none; }
+.post:focus-visible { outline: 3px solid var(--blue); outline-offset: 2px; z-index: 1; }
+.hint { margin-top: 10px; }
+
+
+/* web projects */
+.sites { display: grid; gap: 40px 28px; grid-template-columns: minmax(0, 1fr); }
+@media (min-width: 760px) { .sites { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.site { margin: 0; display: flex; flex-direction: column; gap: 14px; min-width: 0; }
+.browser { display: block; width: 100%; padding: 0; cursor: pointer; text-align: left; color: inherit; font: inherit; border-radius: 8px; overflow: hidden; background: var(--card); border: 1px solid var(--rule); box-shadow: 0 18px 40px -24px rgba(13, 15, 20, .45); text-decoration: none; transition: transform .35s ease, box-shadow .35s ease; }
+.browser:hover { transform: translateY(-4px); box-shadow: 0 26px 50px -26px rgba(13, 15, 20, .55); }
+.browser:focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; }
+.chrome { display: flex; align-items: center; gap: 6px; padding: 9px 12px; border-bottom: 1px solid var(--rule); }
+.chrome i { width: 9px; height: 9px; border-radius: 50%; background: var(--rule); }
+.chrome span { margin-left: 8px; font: 500 12px/1 var(--mono); color: var(--muted); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.browser img { width: 100%; aspect-ratio: 8 / 5; object-fit: cover; object-position: top; }
+.site figcaption { display: flex; flex-direction: column; gap: 8px; }
+.site h3 { margin: 0; font: 900 34px/.95 var(--display); text-transform: uppercase; }
+.site p { margin: 0; max-width: 52ch; }
+.tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 2px; }
+.tags span { font: 500 11px/1 var(--mono); letter-spacing: .05em; text-transform: uppercase; border: 1px solid var(--rule); border-radius: 999px; padding: 6px 9px; color: var(--muted); }
+
+
+/* ActuRapFR case study */
+.case { display: grid; gap: 28px; margin-bottom: 64px; padding-bottom: 56px; border-bottom: 1px dashed var(--rule); }
+@media (min-width: 900px) { .case { grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.6fr); gap: 40px; align-items: start; } }
+.case-info { display: flex; flex-direction: column; gap: 14px; min-width: 0; }
+.case-info h3 { margin: 0; font: 900 clamp(36px, 4.4vw, 56px)/.9 var(--display); text-transform: uppercase; }
+.case-info p { margin: 0; max-width: 46ch; }
+.steps { list-style: none; margin: 4px 0 0; padding: 0; display: grid; gap: 6px; counter-reset: s; }
+.steps li { counter-increment: s; display: grid; grid-template-columns: 28px minmax(0, 1fr); font-size: 15px; }
+.steps li::before { content: counter(s, decimal-leading-zero); font: 500 12px/1.9 var(--mono); color: var(--blue); }
+.case-media { display: grid; gap: 10px; grid-template-columns: repeat(6, minmax(0, 1fr)); min-width: 0; }
+.shot { border: 0; padding: 0; margin: 0; background: var(--card); border-radius: 4px; overflow: hidden; cursor: zoom-in; position: relative; }
+.shot img { width: 100%; height: 100%; object-fit: cover; object-position: top; transition: transform .45s ease; }
+.shot:hover img { transform: scale(1.03); }
+.shot:focus-visible { outline: 3px solid var(--blue); outline-offset: 2px; }
+.shot b { position: absolute; left: 8px; bottom: 8px; font: 500 11px/1 var(--mono); letter-spacing: .05em; text-transform: uppercase; background: var(--paper); color: var(--ink); padding: 5px 7px; border-radius: 3px; }
+.figma-row { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; }
+@media (max-width: 599px) { .figma-row { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.shot.page { aspect-ratio: 3 / 4; border: 1px solid var(--rule); }
+.figma-head { grid-column: 1 / -1; display: flex; justify-content: space-between; align-items: baseline; gap: 12px; margin-top: 6px; }
+.lb.tall .lb-img { display: block; overflow-y: auto; max-height: calc(100dvh - 32px); }
+.lb.tall .lb-img img { max-height: none; width: 100%; }
+@media (max-width: 819px) { .lb.tall .lb-img { max-height: 60dvh; } }
+.shot.main { grid-column: 1 / -1; aspect-ratio: 1219 / 818; }
+.shot.wf { grid-column: span 2; aspect-ratio: 1209 / 819; }
+.shot.sq { aspect-ratio: 1; grid-column: span 2; }
+.shot.sq img { object-fit: contain; background: #fff; }
+.shot.dark img { background: #000; }
+@media (max-width: 599px) { .case-media { grid-template-columns: repeat(2, minmax(0, 1fr)); } .shot.wf { grid-column: 1 / -1; } .shot.sq { grid-column: span 1; } .shot.sq:last-child { grid-column: 1 / -1; aspect-ratio: 2 / 1; } }
+
+/* footer */
+footer { border-top: 1px solid var(--rule); padding-block: 56px 72px; }
+footer .big { margin: 0; font: 900 clamp(44px, 8vw, 104px)/.88 var(--display); text-transform: uppercase; text-wrap: balance; }
+footer .big span { color: var(--blue); }
+footer .row { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px 32px; margin-top: 32px; }
+
+/* lightbox */
+dialog {
+  border: 0; padding: 0; background: transparent; color: var(--ink);
+  width: min(1100px, calc(100vw - 32px)); max-width: none; max-height: calc(100dvh - 32px);
+}
+dialog::backdrop { background: var(--shade); backdrop-filter: blur(4px); }
+.lb { display: grid; background: var(--card); border-radius: 6px; overflow: hidden; max-height: calc(100dvh - 32px); }
+@media (min-width: 820px) { .lb { grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); } }
+.lb.solo, .lb.stack { grid-template-columns: 1fr; }
+.lb.stack .lb-img img { max-height: 62dvh; }
+.lb.stack .lb-text { padding: 20px 24px; }
+.btn.lb-visit { align-self: flex-start; text-decoration: none; background: var(--blue); color: var(--blue-ink); border-color: var(--blue); }
+.lb.solo .lb-text { padding: 16px 20px; flex-direction: row; flex-wrap: wrap; align-items: center; }
+.lb.solo .lb-text h4 { font-size: 26px; }
+.lb.solo .lb-nav { margin: 0 0 0 auto; padding: 0; }
+.lb.solo .lb-img img { max-height: calc(100dvh - 120px); }
+.lb-img { background: #000; display: grid; place-items: center; min-height: 0; }
+.lb-img img { max-height: calc(100dvh - 32px); width: auto; max-width: 100%; object-fit: contain; }
+@media (max-width: 819px) { .lb-img img { max-height: 55dvh; } }
+.lb-text { padding: 24px; display: flex; flex-direction: column; gap: 14px; min-width: 0; overflow-y: auto; }
+.lb-text h4 { margin: 0; font: 900 34px/.95 var(--display); text-transform: uppercase; }
+.lb-text p { margin: 0; white-space: pre-line; font-size: 15px; line-height: 1.6; }
+.lb-nav { display: flex; gap: 8px; margin-top: auto; padding-top: 8px; }
+.btn { font: 500 13px/1 var(--mono); letter-spacing: .05em; text-transform: uppercase; background: transparent; color: var(--ink); border: 1px solid var(--rule); border-radius: 999px; padding: 10px 14px; cursor: pointer; }
+.btn:hover { border-color: var(--ink); }
+.btn:focus-visible { outline: 3px solid var(--blue); outline-offset: 2px; }
+.lb-visit + .btn.close, .btn.close { margin-left: auto; background: var(--blue); color: var(--blue-ink); border-color: var(--blue); }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+
+</head>
+<body>
+<div class="wrap">
+  <header class="bar">
+    <span class="label">Portfolio · Graphisme &amp; réseaux sociaux</span>
+    <nav aria-label="Sections">
+      <a href="#identites">Identités</a>
+      <a href="#reseaux">Réseaux sociaux</a>
+      <a href="#sites">Sites web</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <div class="hero">
+    <div>
+      <h1>Mattéo <span>Fauvre</span></h1>
+      <p class="role">Graphiste, community manager et développeur web, basé à Toulon.</p>
+      <div class="meta">
+        <a class="chip on" href="#identites">Identité visuelle</a>
+        <a class="chip" href="#reseaux">Feeds Instagram</a>
+        <a class="chip" href="#identites">Illustration</a>
+        <a class="chip" href="#sites">Sites web</a>
+      </div>
+    </div>
+    <figure><img src="img/lettrage-3d.png" width="1400" height="891" alt="Lettrage 3D « Mattéo Fauvre » en bleu"></figure>
+  </div>
+</div>
+
+<section id="identites">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="label">01 · Print &amp; identité</span>
+      <div>
+        <h2>Identités &amp; illustration</h2>
+        <p>Logos, étiquette, couverture de magazine et illustration vectorielle. Clique sur une création pour l’agrandir.</p>
+      </div>
+    </div>
+    <div class="works">
+      <figure class="work w-vogue"><button class="frame" type="button" data-lb="works" data-title="Vogue Hommes « D’or et de platine »" data-kicker="Couverture de magazine · montage photo" aria-label="Agrandir : Vogue Hommes « D’or et de platine »"><img src="img/vogue.jpg" width="1100" height="1422" alt="Vogue Hommes « D’or et de platine »" loading="lazy"></button><figcaption><b>Vogue Hommes « D’or et de platine »</b><span class="label">Couverture de magazine · montage photo</span></figcaption></figure>
+<figure class="work w-label"><button class="frame" type="button" data-lb="works" data-title="Château Rose Rouge" data-kicker="Étiquette de vin" aria-label="Agrandir : Château Rose Rouge"><img src="img/rose-rouge-etiquette.jpg" width="772" height="1253" alt="Château Rose Rouge" loading="lazy"></button><figcaption><b>Château Rose Rouge</b><span class="label">Étiquette de vin</span></figcaption></figure>
+<figure class="work w-logo"><button class="frame" type="button" data-lb="works" data-title="Rose Rouge" data-kicker="Logo" aria-label="Agrandir : Rose Rouge"><img src="img/rose-rouge-logo.jpg" width="750" height="750" alt="Rose Rouge" loading="lazy"></button><figcaption><b>Rose Rouge</b><span class="label">Logo</span></figcaption></figure>
+<figure class="work w-sq"><button class="frame" type="button" data-lb="works" data-title="Pochette CD" data-kicker="Mockup produit" aria-label="Agrandir : Pochette CD"><img src="img/cd.jpg" width="480" height="480" alt="Pochette CD" loading="lazy"></button><figcaption><b>Pochette CD</b><span class="label">Mockup produit</span></figcaption></figure>
+<figure class="work w-sq"><button class="frame" type="button" data-lb="works" data-title="Autoportrait" data-kicker="Illustration vectorielle" aria-label="Agrandir : Autoportrait"><img src="img/illustration.jpg" width="499" height="499" alt="Autoportrait" loading="lazy"></button><figcaption><b>Autoportrait</b><span class="label">Illustration vectorielle</span></figcaption></figure>
+<figure class="work w-wide"><button class="frame" type="button" data-lb="works" data-title="Maya et Milo" data-kicker="Logo" aria-label="Agrandir : Maya et Milo"><img src="img/maya-milo.jpg" width="314" height="444" alt="Maya et Milo" loading="lazy"></button><figcaption><b>Maya et Milo</b><span class="label">Logo</span></figcaption></figure>
+
+    </div>
+  </div>
+</section>
+
+<section id="reseaux">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="label">02 · Community management</span>
+      <div>
+        <h2>Feeds Instagram</h2>
+        <p>Direction artistique, création des visuels et rédaction des légendes. Clique sur un feed pour l’agrandir, ou sur un post pour lire sa légende.</p>
+      </div>
+    </div>
+    <article class="feed" aria-labelledby="h-rap">
+  <div class="vlabel" aria-hidden="true">ActuRapFR</div>
+  <div class="feed-info">
+    <span class="label">Feed Instagram</span>
+    <h3 id="h-rap">ActuRapFR</h3>
+    <p>Média indépendant dédié au rap français : fiches artistes, labels, actu de la semaine. J’ai créé le site WordPress, la charte graphique et le feed Instagram qui renvoie vers le wiki.</p>
+    <dl class="facts"><dt>Type</dt><dd>Projet perso · média</dd><dt>Outils</dt><dd>Canva, Illustrator, WordPress</dd></dl>
+    <button class="board" type="button" data-lb="board-rap" data-title="ActuRapFR" data-kicker="Feed Instagram" aria-label="Agrandir le feed ActuRapFR"><img src="img/rap-feed.jpg" width="1400" height="788" alt="Feed Instagram ActuRapFR" loading="lazy"></button>
+  </div>
+  <div>
+    <div class="grid"><button class="post" type="button" data-lb="rap" data-title="ActuRapFR" data-cap="ActuRapFR, c’est une plateforme indépendante dédiée au rap français. Un espace pensé pour explorer la culture rap à travers des fiches artistes, des articles, des labels, des anecdotes et une ligne éditoriale claire : transmettre, archiver, faire kiffer.
+👉 Pourquoi ce projet ? Pour créer un vrai point de repère, sans algorithme ni filtre. Tout le rap, bien présenté, bien structuré.
+🔗 Découvre le site via le lien en bio.
+#ActuRapFR #RapFrançais #CultureRap #FicheArtiste #WikiRap" data-kicker="ActuRapFR" aria-label="Voir le post : ActuRapFR"><img src="img/rap-02.jpg" width="720" height="786" alt="Post Instagram ActuRapFR : ActuRapFR" loading="lazy"><span>ActuRapFR</span></button><button class="post" type="button" data-lb="rap" data-title="Jul – D&amp;P à vie" data-cap="Jul revient avec un nouveau projet qui confirme, une fois de plus, sa régularité hors norme et sa capacité à rassembler un public toujours plus large. Entre sons festifs, introspections et collaborations inattendues, l’album illustre son identité musicale inimitable.
+Retrouve l’analyse complète de ce projet sur ActuRapFR et explore la fiche dédiée à l’artiste.
+🔗 Accès via “Wiki &gt; Jul” depuis le lien en bio.
+#Jul #DernierAlbum #RapFrançais #ActuRapFR #FicheArtiste" data-kicker="ActuRapFR" aria-label="Voir le post : Jul – D&amp;P à vie"><img src="img/rap-03.jpg" width="720" height="786" alt="Post Instagram ActuRapFR : Jul – D&amp;P à vie" loading="lazy"><span>Jul – D&amp;P à vie</span></button><button class="post" type="button" data-lb="rap" data-title="Green Montana" data-cap="🎧 Green Montana – Style glacé, impact brûlant
+Green Montana, c’est l’alliance rare entre mélancolie et précision. Son flow planant, ses visuels léchés et ses punchlines subtiles en font un pilier discret mais solide du rap francophone.
+📖 Sa fiche wiki est dispo sur ActuRapFR : origines &amp; influences, projets clés, univers artistique complet.
+🔗 Clique sur “Wiki &gt; Green Montana” via le lien en bio.
+#GreenMontana #RapFr #WikiRap #ActuRapFR #FicheArtiste" data-kicker="ActuRapFR" aria-label="Voir le post : Green Montana"><img src="img/rap-04.jpg" width="720" height="786" alt="Post Instagram ActuRapFR : Green Montana" loading="lazy"><span>Green Montana</span></button><button class="post" type="button" data-lb="rap" data-title="Oboy" data-cap="Oboy impose un style hybride entre cloud, trap et mélancolie brute. Sa voix grave, ses prods planantes et ses textes introspectifs en font un artiste à part dans le paysage rap francophone.
+🔗 Accès via “Wiki &gt; Oboy” dans le lien en bio.
+#Oboy #RapFr #FicheArtiste #ActuRapFR #WikiRap" data-kicker="ActuRapFR" aria-label="Voir le post : Oboy"><img src="img/rap-05.jpg" width="720" height="786" alt="Post Instagram ActuRapFR : Oboy" loading="lazy"><span>Oboy</span></button><button class="post" type="button" data-lb="rap" data-title="So La Lune" data-cap="So La Lune bouscule les codes avec une esthétique singulière, entre mélancolie brute et poésie moderne. Ses prods aériennes et sa voix fêlée signent un univers immédiatement identifiable, à la frontière entre émotion et technique.
+🔗 Clique sur “Wiki &gt; So La Lune” dans le lien en bio.
+#SoLaLune #RapFr #FicheArtiste #ActuRapFR #WikiRap" data-kicker="ActuRapFR" aria-label="Voir le post : So La Lune"><img src="img/rap-06.jpg" width="720" height="786" alt="Post Instagram ActuRapFR : So La Lune" loading="lazy"><span>So La Lune</span></button><button class="post" type="button" data-lb="rap" data-title="Label 92i" data-cap="Fondé par Booba, le label 92i a façonné une partie du paysage rap français des années 2010. De Damso à SDM, en passant par Benash et Siboy, chaque artiste du roster a contribué à installer une esthétique puissante, froide et calibrée pour marquer son époque.
+#92i #Booba #LabelRap #ActuRapFR #WikiRap" data-kicker="ActuRapFR" aria-label="Voir le post : Label 92i"><img src="img/rap-07.jpg" width="720" height="786" alt="Post Instagram ActuRapFR : Label 92i" loading="lazy"><span>Label 92i</span></button><button class="post" type="button" data-lb="rap" data-title="Histoire du rap" data-cap="Le Ministère AMER est censuré pour avoir “ouvert sa gueule”. Cette affaire marque un tournant dans l’histoire du rap français. Elle pose frontalement la question de la liberté d’expression, du rôle social du rap et de ses limites médiatiques.
+#MinistèreAMER #RapFr #Censure #HistoireDuRap #ActuRapFR" data-kicker="ActuRapFR" aria-label="Voir le post : Histoire du rap"><img src="img/rap-08.jpg" width="720" height="786" alt="Post Instagram ActuRapFR : Histoire du rap" loading="lazy"><span>Histoire du rap</span></button><button class="post" type="button" data-lb="rap" data-title="Sorties de la semaine" data-cap="Le rap français ne s’arrête jamais. Cette semaine, plusieurs projets méritent l’écoute : du gros calibre, des découvertes, et quelques surprises. On a sélectionné pour toi les sorties à ne pas rater.
+👉 Tracklists, univers, coups de cœur : tout est à retrouver sur ActuRapFR. Et toi, t’as écouté quoi en boucle cette semaine ?
+🔗 Rendez-vous dans la section “Actu” sur le site (lien en bio).
+#RapFr #NouvelAlbum #SortiesRap #ActuMusicale #ActuRapFR" data-kicker="ActuRapFR" aria-label="Voir le post : Sorties de la semaine"><img src="img/rap-09.jpg" width="720" height="786" alt="Post Instagram ActuRapFR : Sorties de la semaine" loading="lazy"><span>Sorties de la semaine</span></button><button class="post" type="button" data-lb="rap" data-title="Collabs mythiques" data-cap="Certaines collaborations marquent plus que des featurings. Elles capturent un moment, une alchimie, une vision commune entre deux artistes. De SCH x Jul à Damso x Laylow, en passant par Nekfeu x Alpha Wann, ces connexions ont laissé une empreinte.
+🔗 Détail complet à retrouver sur le site (lien en bio).
+#Featurings #CollabsRap #RapFr #TopCollab #ActuRapFR" data-kicker="ActuRapFR" aria-label="Voir le post : Collabs mythiques"><img src="img/rap-10.jpg" width="720" height="786" alt="Post Instagram ActuRapFR : Collabs mythiques" loading="lazy"><span>Collabs mythiques</span></button><button class="post" type="button" data-lb="rap" data-title="Agenda rap" data-cap="Clips, albums, feats : voici ce qui fait vibrer le rap français cette semaine. L’actualité est dense, entre grosses sorties et projets plus discrets qui méritent l’écoute. L’agenda est là pour t’aider à ne rien manquer.
+👉 Découvre la sélection complète sur ActuRapFR.
+🔗 Accès dans la section “Actu” via le lien en bio.
+#AgendaRap #RapFr #SortiesSemaine #ActuRapFR #Nouveauté" data-kicker="ActuRapFR" aria-label="Voir le post : Agenda rap"><img src="img/rap-11.jpg" width="720" height="786" alt="Post Instagram ActuRapFR : Agenda rap" loading="lazy"><span>Agenda rap</span></button><button class="post" type="button" data-lb="rap" data-title="Damso ou Laylow ?" data-cap="Deux univers, deux esthétiques, deux visions du rap. Damso et Laylow ont chacun marqué leur époque avec des albums forts, personnels et visuellement puissants. Mais si tu devais en garder un seul ?
+👉 On te pose la question dans notre story : “Ipséité” ou “Trinity” ? À toi de trancher.
+🔗 Résultats et focus à retrouver sur ActuRapFR.
+#Damso #Laylow #Ipséité #Trinity #RapFr #SondageRap #ActuRapFR" data-kicker="ActuRapFR" aria-label="Voir le post : Damso ou Laylow ?"><img src="img/rap-12.jpg" width="720" height="786" alt="Post Instagram ActuRapFR : Damso ou Laylow ?" loading="lazy"><span>Damso ou Laylow ?</span></button><button class="post" type="button" data-lb="rap" data-title="Artistes sous-cotés" data-cap="Tout le monde parle des têtes d’affiche, mais le rap français regorge d’artistes solides, discrets, parfois oubliés, souvent sous-cotés. On t’en propose 5 à (re)découvrir via leurs fiches complètes sur ActuRapFR.
+👉 Bio, projets, style, évolution : tout est là pour creuser au-delà du buzz.
+🔗 Clique sur “Wiki &gt; Artistes” dans le lien en bio.
+#DécouverteRap #RapFr #WikiRap #FichesArtistes #ActuRapFR" data-kicker="ActuRapFR" aria-label="Voir le post : Artistes sous-cotés"><img src="img/rap-13.jpg" width="720" height="786" alt="Post Instagram ActuRapFR : Artistes sous-cotés" loading="lazy"><span>Artistes sous-cotés</span></button><button class="post" type="button" data-lb="rap" data-title="Pochettes iconiques" data-cap="Certaines pochettes d’albums sont devenues aussi reconnaissables que les sons qu’elles contiennent. Elles racontent une époque, une esthétique, une identité artistique. Entre minimalisme, provocation ou univers visuel travaillé, elles marquent durablement l’imaginaire du rap français.
+🔗 Lien direct dans la section “Actu” sur le site (via bio).
+#CoverRap #AlbumIconique #RapFrançais #CultureVisuelle #ActuRapFR" data-kicker="ActuRapFR" aria-label="Voir le post : Pochettes iconiques"><img src="img/rap-14.jpg" width="720" height="786" alt="Post Instagram ActuRapFR : Pochettes iconiques" loading="lazy"><span>Pochettes iconiques</span></button><button class="post" type="button" data-lb="rap" data-title="PLK" data-cap="🔥 PLK – Le phénomène du rap français
+PLK enchaîne les projets et confirme son statut dans le rap français.
+👉 Découvre sa biographie, ses albums, ses collaborations et bien plus dans sa fiche complète sur ActuRapFR.
+🔗 Clique sur “Wiki &gt; PLK” depuis notre lien en bio !
+#PLK #RapFrançais #FicheArtiste #WikiRap #ActuRapFR" data-kicker="ActuRapFR" aria-label="Voir le post : PLK"><img src="img/rap-15.jpg" width="720" height="786" alt="Post Instagram ActuRapFR : PLK" loading="lazy"><span>PLK</span></button></div>
+    <p class="label hint">Clique sur un post pour lire sa légende</p>
+  </div>
+</article>
+<article class="feed" aria-labelledby="h-hotel">
+  <div class="vlabel" aria-hidden="true">La Voile</div>
+  <div class="feed-info">
+    <span class="label">Feed Instagram</span>
+    <h3 id="h-hotel">Hôtel La Voile</h3>
+    <p>Hôtel à Bormes-les-Mimosas. Feed lumineux construit autour des lieux (piscine, terrasse, chambres, mer) et légendes orientées réservation.</p>
+    <dl class="facts"><dt>Type</dt><dd>Client · hôtellerie</dd><dt>Lieu</dt><dd>Bormes-les-Mimosas (83)</dd><dt>Outils</dt><dd>Canva, photo</dd></dl>
+    <button class="board" type="button" data-lb="board-hotel" data-title="Hôtel La Voile" data-kicker="Feed Instagram" aria-label="Agrandir le feed Hôtel La Voile"><img src="img/hotel-feed.jpg" width="1400" height="788" alt="Feed Instagram Hôtel La Voile" loading="lazy"></button>
+  </div>
+  <div>
+    <div class="grid"><button class="post" type="button" data-lb="hotel" data-title="La terrasse" data-cap="🌿 Détendez-vous sur notre terrasse ombragée, entourée de verdure luxuriante, et profitez de la tranquillité dans le calme et la fraîcheur.
+Réservez votre séjour à l’Hôtel La Voile et découvrez notre oasis de paix à Bormes-les-Mimosas. 🌴✨
+#hotellavoile #ombreparfaite #detente #bormeslesmimosas #hotelvar" data-kicker="Hôtel La Voile" aria-label="Voir le post : La terrasse"><img src="img/hotel-02.jpg" width="660" height="801" alt="Post Instagram Hôtel La Voile : La terrasse" loading="lazy"><span>La terrasse</span></button><button class="post" type="button" data-lb="hotel" data-title="Le salon" data-cap="Détendez-vous dans notre espace élégant et lumineux, avec une vue magnifique sur Bormes-les-Mimosas. Chaque moment passé ici est une invitation à la détente et à l’évasion.
+#hotellavoile #bormeslesmimosas #hotelvar #hotelbormeslesmimosas" data-kicker="Hôtel La Voile" aria-label="Voir le post : Le salon"><img src="img/hotel-03.jpg" width="660" height="801" alt="Post Instagram Hôtel La Voile : Le salon" loading="lazy"><span>Le salon</span></button><button class="post" type="button" data-lb="hotel" data-title="La piscine" data-cap="Profitez de moments de pure détente dans notre piscine scintillante. Que ce soit pour nager, bronzer ou simplement se relaxer au bord de l’eau, notre piscine est l’endroit idéal pour se rafraîchir et se ressourcer.
+#hotellavoile #piscine #detente #soleiletpiscine #bormeslesmimosas #hotelvar" data-kicker="Hôtel La Voile" aria-label="Voir le post : La piscine"><img src="img/hotel-04.jpg" width="660" height="801" alt="Post Instagram Hôtel La Voile : La piscine" loading="lazy"><span>La piscine</span></button><button class="post" type="button" data-lb="hotel" data-title="Les chambres" data-cap="🌟 Transformez vos rêves en réalité 🌟
+“Fais de ta vie un rêve et d’un rêve une réalité”. Séjournez dans nos chambres élégantes et confortables, où chaque détail est pensé pour vous inspirer et vous détendre.
+#hotellavoile #Inspiration #cotedazur #bormeslesmimosas #hotelvar" data-kicker="Hôtel La Voile" aria-label="Voir le post : Les chambres"><img src="img/hotel-05.jpg" width="660" height="801" alt="Post Instagram Hôtel La Voile : Les chambres" loading="lazy"><span>Les chambres</span></button><button class="post" type="button" data-lb="hotel" data-title="Coin piscine" data-cap="Plongez dans le confort de notre coin piscine, l’endroit idéal pour se rafraîchir et se détendre sous le soleil méditerranéen. Venez profiter d’une ambiance sereine et relaxante à l’Hôtel La Voile.
+#hotellavoile #piscine #detente #bormeslesmimosas #hotelvar" data-kicker="Hôtel La Voile" aria-label="Voir le post : Coin piscine"><img src="img/hotel-06.jpg" width="660" height="801" alt="Post Instagram Hôtel La Voile : Coin piscine" loading="lazy"><span>Coin piscine</span></button><button class="post" type="button" data-lb="hotel" data-title="L’accueil" data-cap="Plongez dans l’ambiance apaisante de notre salon, parfait pour se détendre ou partager un bon moment. Chaque détail est pensé pour votre confort et votre bien-être.
+Réservez votre séjour et découvrez l’élégance de notre intérieur à Bormes-les-Mimosas. 🌴✨
+#hotellavoile #cocktailtime #bormeslesmimosas #hotelvar" data-kicker="Hôtel La Voile" aria-label="Voir le post : L’accueil"><img src="img/hotel-07.jpg" width="660" height="801" alt="Post Instagram Hôtel La Voile : L’accueil" loading="lazy"><span>L’accueil</span></button><button class="post" type="button" data-lb="hotel" data-title="Reflets" data-cap="🌞 Reflets de sérénité ensoleillés à l’Hôtel La Voile
+Découvrez notre piscine sous un nouvel angle. Un instant de sérénité et de fraîcheur sous le soleil de Bormes-les-Mimosas.
+#hotellavoile #bormeslesmimosas #hotelvar #hotelbormeslesmimosas" data-kicker="Hôtel La Voile" aria-label="Voir le post : Reflets"><img src="img/hotel-08.jpg" width="660" height="801" alt="Post Instagram Hôtel La Voile : Reflets" loading="lazy"><span>Reflets</span></button><button class="post" type="button" data-lb="hotel" data-title="Évasion et confort" data-cap="🏖️ Évasion et confort à l’Hôtel La Voile 🛏️
+Prenez une pause bien méritée dans nos chambres lumineuses et décorées avec soin. Chaque détail est pensé pour offrir un cadre apaisant et relaxant après une belle journée sous le soleil de Bormes-les-Mimosas. 🌅✨
+#hotellavoile #cotedazur #ChambreConfort #bormeslesmimosas #hotelvar" data-kicker="Hôtel La Voile" aria-label="Voir le post : Évasion et confort"><img src="img/hotel-09.jpg" width="660" height="801" alt="Post Instagram Hôtel La Voile : Évasion et confort" loading="lazy"><span>Évasion et confort</span></button><button class="post" type="button" data-lb="hotel" data-title="La mer à deux pas" data-cap="La mer à deux pas 🌊
+À quelques pas de l’Hôtel La Voile, découvrez le charme de la Méditerranée. Promenez-vous le long de la plage, écoutez le doux bruit des vagues et laissez-vous envoûter par la beauté de la mer.
+#hotellavoile #cotedazur #prochedelamer #bormeslesmimosas #hotelvar #plage" data-kicker="Hôtel La Voile" aria-label="Voir le post : La mer à deux pas"><img src="img/hotel-10.jpg" width="660" height="801" alt="Post Instagram Hôtel La Voile : La mer à deux pas" loading="lazy"><span>La mer à deux pas</span></button></div>
+    <p class="label hint">Clique sur un post pour lire sa légende</p>
+  </div>
+</article>
+
+  </div>
+</section>
+
+<section id="sites">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="label">03 · Développement web</span>
+      <div>
+        <h2>Sites &amp; applications</h2>
+        <p>Sites vitrines et SaaS que j’ai conçus, codés et mis en ligne. Clique sur une capture pour ouvrir le site.</p>
+      </div>
+    </div>
+    <article class="case" aria-labelledby="h-arf">
+      <div class="case-info">
+        <span class="label">Étude de cas · site WordPress</span>
+        <h3 id="h-arf">ActuRapFR</h3>
+        <p>Média indépendant dédié au rap français, avec actus, wiki des artistes et fiches labels. J’ai mené le projet de A à Z, de la recherche jusqu’au site en ligne.</p>
+        <ol class="steps">
+          <li>Benchmark des médias rap existants</li>
+          <li>Logo, déclinaisons et charte graphique</li>
+          <li>Wireframes et maquettes Figma (desktop + mobile)</li>
+          <li>Maquette finale</li>
+          <li>Intégration WordPress + Elementor</li>
+          <li>Feed Instagram relié au wiki</li>
+        </ol>
+      </div>
+      <div class="case-media"><button class="shot main" type="button" data-lb="acturap" data-title="Maquette finale desktop + mobile" data-kicker="ActuRapFR" aria-label="Agrandir : Maquette finale desktop + mobile"><img src="img/arf-maquette.jpg" width="1219" height="818" alt="Maquette finale desktop + mobile" loading="lazy"><b>Maquette du site</b></button><button class="shot wf" type="button" data-lb="acturap" data-title="Wireframe · page d’accueil" data-kicker="ActuRapFR" aria-label="Agrandir : Wireframe · page d’accueil"><img src="img/arf-wf-accueil.jpg" width="1209" height="819" alt="Wireframe · page d’accueil" loading="lazy"><b>Wireframe accueil</b></button><button class="shot wf" type="button" data-lb="acturap" data-title="Wireframe · wiki artistes" data-kicker="ActuRapFR" aria-label="Agrandir : Wireframe · wiki artistes"><img src="img/arf-wf-wiki.jpg" width="1161" height="821" alt="Wireframe · wiki artistes" loading="lazy"><b>Wireframe wiki</b></button><button class="shot wf" type="button" data-lb="acturap" data-title="Wireframe · fiche article" data-kicker="ActuRapFR" aria-label="Agrandir : Wireframe · fiche article"><img src="img/arf-wf-article.jpg" width="1156" height="821" alt="Wireframe · fiche article" loading="lazy"><b>Wireframe article</b></button><button class="shot sq dark" type="button" data-lb="acturap" data-title="Logo ActuRapFR" data-kicker="ActuRapFR" aria-label="Agrandir : Logo ActuRapFR"><img src="img/arf-logo.jpg" width="721" height="715" alt="Logo ActuRapFR" loading="lazy"><b>Logo</b></button><button class="shot sq" type="button" data-lb="acturap" data-title="Charte graphique" data-kicker="ActuRapFR" aria-label="Agrandir : Charte graphique"><img src="img/arf-charte.jpg" width="444" height="626" alt="Charte graphique" loading="lazy"><b>Charte</b></button><button class="shot sq" type="button" data-lb="acturap" data-title="Moodboard &amp; palette" data-kicker="ActuRapFR" aria-label="Agrandir : Moodboard &amp; palette"><img src="img/arf-moodboard.jpg" width="572" height="754" alt="Moodboard &amp; palette" loading="lazy"><b>Moodboard</b></button><div class="figma-head"><span class="label">Maquettes Figma · pages complètes en couleur</span><span class="label">Fais défiler dans l’aperçu</span></div><div class="figma-row"><button class="shot page" type="button" data-lb="acturap" data-tall="1" data-title="Page Accueil" data-kicker="ActuRapFR · Figma" data-cap="Maquette Figma de la page Accueil, en version ordinateur (1440 px). Fais défiler l’image pour voir toute la page." aria-label="Agrandir la page Accueil"><img src="img/fig-accueil.jpg" width="900" height="3686" alt="Maquette Figma, page Accueil" loading="lazy"><b>Accueil</b></button><button class="shot page" type="button" data-lb="acturap" data-tall="1" data-title="Page Actualités" data-kicker="ActuRapFR · Figma" data-cap="Maquette Figma de la page Actualités, en version ordinateur (1440 px). Fais défiler l’image pour voir toute la page." aria-label="Agrandir la page Actualités"><img src="img/fig-actualites.jpg" width="900" height="1836" alt="Maquette Figma, page Actualités" loading="lazy"><b>Actualités</b></button><button class="shot page" type="button" data-lb="acturap" data-tall="1" data-title="Page Wiki" data-kicker="ActuRapFR · Figma" data-cap="Maquette Figma de la page Wiki, en version ordinateur (1440 px). Fais défiler l’image pour voir toute la page." aria-label="Agrandir la page Wiki"><img src="img/fig-wiki.jpg" width="900" height="779" alt="Maquette Figma, page Wiki" loading="lazy"><b>Wiki</b></button><button class="shot page" type="button" data-lb="acturap" data-tall="1" data-title="Fiche artiste (PLK)" data-kicker="ActuRapFR · Figma" data-cap="Maquette Figma de la fiche artiste PLK, en version ordinateur (1440 px). Fais défiler l’image pour voir toute la page." aria-label="Agrandir la fiche artiste"><img src="img/fig-article.jpg" width="900" height="1836" alt="Maquette Figma, page Article" loading="lazy"><b>Fiche artiste</b></button></div></div>
+    </article>
+    <div class="sites">
+<figure class="site"><a class="browser" href="https://snack-kebab.vercel.app" target="_blank" rel="noopener" aria-label="Ouvrir Snack Bosphore dans un nouvel onglet"><div class="chrome" aria-hidden="true"><i></i><i></i><i></i><span>snack-kebab.vercel.app</span></div><img src="img/web-snack.jpg" width="800" height="500" alt="Page d’accueil de Snack Bosphore" loading="lazy"></a><figcaption><h3>Snack Bosphore</h3><p>Site de commande pour un snack (projet démo) : menu, composition de kebab, et un espace gérant avec éditeur visuel en direct pour modifier la carte.</p><div class="tags"><span>React</span><span>Vercel</span><span>Redis</span><span>Espace admin</span></div></figcaption></figure>
+<figure class="site"><a class="browser" href="https://fichepilote.fr" target="_blank" rel="noopener" aria-label="Ouvrir FichePilote dans un nouvel onglet"><div class="chrome" aria-hidden="true"><i></i><i></i><i></i><span>fichepilote.fr</span></div><img src="img/web-fichepilote.jpg" width="800" height="500" alt="Page d’accueil de FichePilote" loading="lazy"></a><figcaption><h3>FichePilote</h3><p>Service qui gère la fiche Google des commerces du Var : réponses aux avis sous 24 h, publications et rapport mensuel.</p><div class="tags"><span>Landing page</span><span>SaaS</span><span>IA</span></div></figcaption></figure>
+<figure class="site"><a class="browser" href="https://marchesmalins.fr" target="_blank" rel="noopener" aria-label="Ouvrir Marchés Malins dans un nouvel onglet"><div class="chrome" aria-hidden="true"><i></i><i></i><i></i><span>marchesmalins.fr</span></div><img src="img/web-marchesmalins.jpg" width="800" height="500" alt="Page d’accueil de Marchés Malins" loading="lazy"></a><figcaption><h3>Marchés Malins</h3><p>Alertes marchés publics pour artisans et TPE : chaque matin, les appels d’offres du métier et du département, résumés en 3 lignes.</p><div class="tags"><span>SaaS</span><span>Veille automatisée</span><span>Emailing</span></div></figcaption></figure>
+<figure class="site"><a class="browser" href="https://postia-app.fr" target="_blank" rel="noopener" aria-label="Ouvrir PostIA dans un nouvel onglet"><div class="chrome" aria-hidden="true"><i></i><i></i><i></i><span>postia-app.fr</span></div><img src="img/web-postia.jpg" width="800" height="500" alt="Page d’accueil de PostIA" loading="lazy"></a><figcaption><h3>PostIA</h3><p>Générateur de posts Instagram, Facebook et TikTok pour commerçants : on décrit son commerce, l’IA rédige les publications en 30 secondes.</p><div class="tags"><span>SaaS</span><span>IA</span><span>Vercel</span></div></figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="wrap">
+    <p class="big">Un projet de visuels ou <span>de réseaux sociaux&nbsp;?</span></p>
+    <div class="row">
+      <span class="label">Mattéo Fauvre · Toulon, Var</span>
+      <span class="label">Identité visuelle · Instagram · Web</span>
+    </div>
+  </div>
+</footer>
+
+<dialog id="lb" aria-labelledby="lb-title">
+  <div class="lb">
+    <div class="lb-img"><img id="lb-img" alt=""></div>
+    <div class="lb-text">
+      <span class="label" id="lb-kicker"></span>
+      <h4 id="lb-title"></h4>
+      <p id="lb-cap"></p>
+      <div class="lb-nav">
+        <button class="btn" id="lb-prev" type="button">← Préc.</button>
+        <button class="btn" id="lb-next" type="button">Suiv. →</button>
+        <a class="btn lb-visit" id="lb-visit" href="#" target="_blank" rel="noopener" hidden>Visiter le site ↗</a>
+        <button class="btn close" id="lb-close" type="button">Fermer</button>
+      </div>
+    </div>
+  </div>
+</dialog>
+
+<script>
+(() => {
+  const dlg = document.getElementById('lb');
+  const img = document.getElementById('lb-img');
+  const title = document.getElementById('lb-title');
+  const cap = document.getElementById('lb-cap');
+  const kicker = document.getElementById('lb-kicker');
+  let group = [], idx = 0;
+  function show() {
+    const el = group[idx];
+    img.src = el.dataset.full || el.querySelector('img').getAttribute('src');
+    img.alt = el.dataset.title || '';
+    title.textContent = el.dataset.title || '';
+    cap.textContent = el.dataset.cap || '';
+    cap.hidden = !el.dataset.cap;
+    const box = dlg.querySelector('.lb');
+    box.classList.toggle('solo', !el.dataset.cap);
+    box.classList.toggle('stack', !!el.dataset.wide);
+    box.classList.toggle('tall', !!el.dataset.tall);
+    dlg.querySelector('.lb-img').scrollTop = 0;
+    const visit = document.getElementById('lb-visit');
+    visit.hidden = !el.dataset.url;
+    if (el.dataset.url) visit.href = el.dataset.url;
+    kicker.textContent = (el.dataset.kicker || '') + (group.length > 1 ? ` · ${idx + 1} / ${group.length}` : '');
+    document.getElementById('lb-prev').hidden = group.length < 2;
+    document.getElementById('lb-next').hidden = group.length < 2;
+  }
+  document.querySelectorAll('[data-lb]').forEach(el => {
+    el.addEventListener('click', () => {
+      group = [...document.querySelectorAll(`[data-lb="${el.dataset.lb}"]`)];
+      idx = group.indexOf(el);
+      show();
+      if (!dlg.open) dlg.showModal();
+    });
+  });
+  const step = d => { idx = (idx + d + group.length) % group.length; show(); };
+  document.getElementById('lb-prev').onclick = () => step(-1);
+  document.getElementById('lb-next').onclick = () => step(1);
+  document.getElementById('lb-close').onclick = () => dlg.close();
+  dlg.addEventListener('click', e => { if (e.target === dlg) dlg.close(); });
+  dlg.addEventListener('keydown', e => {
+    if (e.key === 'ArrowRight') step(1);
+    if (e.key === 'ArrowLeft') step(-1);
+  });
+})();
+</script>
+
+</body>
+</html>
